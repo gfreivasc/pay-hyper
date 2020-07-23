@@ -15,9 +15,7 @@ class HomeController @Inject constructor(
 ) : HyperController.NoAction<HomeState>(R.layout.home_view) {
     override val view: HyperView.NoAction<HomeState> = HomeView(this)
 
-    override fun initState(): HomeState = HomeState(true, null).also {
-        fetchBalance()
-    }
+    override fun initState(): HomeState = HomeState(true, null)
 
     fun addMoney() {
         findNavController().navigate(Nav.CASH_IN, Nav.buildNavOptions())
@@ -27,8 +25,14 @@ class HomeController @Inject constructor(
         return getString(R.string.balance_format, parseBalanceText(balance))
     }
 
+    override fun onResume() {
+        super.onResume()
+        fetchBalance()
+    }
+
     private fun fetchBalance() {
         coroutineScope.launch {
+            updateState { old -> HomeState(true, old.balance) }
             val balance = getUserBalanceUseCase.execute()
             updateState { HomeState(false, balance) }
         }

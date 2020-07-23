@@ -15,8 +15,8 @@ class CashInController @Inject constructor(
     fun cashIn(value: Int) {
         coroutineScope.launch {
             addBalanceUseCase.execute(value)
+            findNavController().popBackStack()
         }
-        findNavController().popBackStack()
     }
 
     override val view: HyperView.Static = CashInView(this)
