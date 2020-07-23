@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cash_in_value_hint">10</string>
+    <string name="cash_in_cents">00</string>
+    <string name="cash_in_currency">R$</string>
+    <string name="cash_in_submit">Adicionar dinheiro</string>
+</resources>
