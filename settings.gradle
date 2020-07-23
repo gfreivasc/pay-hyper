@@ -1,0 +1,8 @@
+rootProject.name = "pay"
+include ':app'
+include ':hyper'
+include ':home'
+include ':data'
+include ':cashin'
+include ':nav'
+include ':hyper-dagger'

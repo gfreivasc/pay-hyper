@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navGraph"
+    app:startDestination="@id/homeController">
+
+    <fragment
+        android:id="@+id/homeController"
+        android:name="com.gabrielfv.pay.home.HomeController"
+        android:label="Home"
+        tools:layout="@layout/home_view" >
+    </fragment>
+    <fragment
+        android:id="@+id/cashInController"
+        android:name="com.gabrielfv.pay.cashin.CashInController"
+        android:label="CashIn"
+        tools:layout="@layout/cash_in_view">
+        <deepLink app:uri="gfvPay://cashIn" />
+    </fragment>
+</navigation>
