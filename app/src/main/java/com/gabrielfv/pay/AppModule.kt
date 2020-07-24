@@ -2,6 +2,7 @@ package com.gabrielfv.pay
 
 import com.gabrielfv.hyper.HyperController
 import com.gabrielfv.hyper_dagger.HyperControllerFactory
+import com.gabrielfv.hyper_dagger.HyperControllerKey
 import com.gabrielfv.hyper_dagger.HyperProviderMap
 import com.gabrielfv.pay.cashin.CashInController
 import com.gabrielfv.pay.home.HomeController
@@ -16,12 +17,12 @@ import javax.inject.Singleton
 interface AppModule {
     @Binds
     @IntoMap
-    @StringKey("com.gabrielfv.pay.home.HomeController")
+    @HyperControllerKey(HomeController::class)
     fun bindHomeController(controller: HomeController): HyperController<*, *>
 
     @Binds
     @IntoMap
-    @StringKey("com.gabrielfv.pay.cashin.CashInController")
+    @HyperControllerKey(CashInController::class)
     fun bindCashInController(controller: CashInController): HyperController<*, *>
 
     companion object {
